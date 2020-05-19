@@ -6,4 +6,7 @@
     <string name="sign_in">Sign in</string>
     <string name="have_no_account">Have no account !</string>
     <string name="sign_up">Sign up</string>
+    <string name="error_username">Username/Email is required</string>
+    <string name="error_password">Password is required</string>
+    <string name="add_farmers">Add Farmers</string>
 </resources>

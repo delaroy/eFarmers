@@ -92,7 +92,7 @@
                 android:id="@+id/sign_up"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorAccent"
+                android:textColor="@color/pink"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 android:text="@string/sign_up"/>
