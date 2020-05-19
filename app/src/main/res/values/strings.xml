@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">eFarmers</string>
+    <string name="copyright_m">copyright \u00A9 eFarmers. </string>
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="sign_in">Sign in</string>
+    <string name="have_no_account">Have no account !</string>
+    <string name="sign_up">Sign up</string>
 </resources>
