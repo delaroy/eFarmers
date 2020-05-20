@@ -9,4 +9,14 @@
     <string name="error_username">Username/Email is required</string>
     <string name="error_password">Password is required</string>
     <string name="add_farmers">Add Farmers</string>
+    <string name="full_name">Full name</string>
+    <string name="age">Age</string>
+    <string name="years_farming">Years of Farming</string>
+    <string name="type_farming">Type of Farming</string>
+    <string name="farm_address">Farm Address</string>
+    <string name="click_in_circle">Click in circle to select image</string>
+    <string name="google_maps_key">AIzaSyD1tt4GSw9MSebyHaIQK9mU5xXpJ4QoKRM</string>
+    <string name="permission_denied">Permission not granted</string>
+    <string name="uploadImages">Set your image</string>
+    <string name="sorry_error">error</string>
 </resources>
