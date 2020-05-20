@@ -19,4 +19,12 @@
     <string name="permission_denied">Permission not granted</string>
     <string name="uploadImages">Set your image</string>
     <string name="sorry_error">error</string>
+    <string name="farm_name">Farm name</string>
+    <string name="select_image">Please select or take a profile image</string>
+    <string name="error_name">Full name is required</string>
+    <string name="error_age">Age is required</string>
+    <string name="error_farm_name">farm name is required</string>
+    <string name="error_years_farming">Years of farming is required</string>
+    <string name="error_type_farming">type of farming is required</string>
+    <string name="error_address">farm address is required</string>
 </resources>

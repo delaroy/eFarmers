@@ -28,6 +28,9 @@ import androidx.core.content.FileProvider;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.bumptech.glide.Glide;
+import com.delaroystudios.efarmers.database.AppDatabase;
+import com.delaroystudios.efarmers.database.FarmersEntity;
+import com.delaroystudios.efarmers.viewmodel.AppExecutors;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -54,6 +57,8 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
     @BindView(R.id.input_age) TextInputEditText input_age;
     @BindView(R.id.years_farming) TextInputLayout years_farming;
     @BindView(R.id.input_years_farming) TextInputEditText input_years_farming;
+    @BindView(R.id.farm_name) TextInputLayout farm_name;
+    @BindView(R.id.input_farm_name) TextInputEditText input_farm_name;
     @BindView(R.id.type_farming) TextInputLayout type_farming;
     @BindView(R.id.input_type_farming) TextInputEditText input_type_farming;
     @BindView(R.id.farm_address) TextInputLayout farm_address;
@@ -75,6 +80,7 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
     private ProgressDialog pDialog;
     private String path;
     private static final String POST_PATH = "post_path";
+    AppDatabase db;
 
 
     @Override
@@ -104,6 +110,8 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        db = AppDatabase.getInstance(this);
     }
 
     @Override
@@ -332,13 +340,57 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.submit) {
-            Toast.makeText(ProfileActivity.this, postPath, Toast.LENGTH_LONG).show();
+            if (postPath == null) {
+                Toast.makeText(this, R.string.select_image, Toast.LENGTH_SHORT).show();
+            } else {
+                verifyData();
+            }
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void verifyData() {
+        name.setError(null);
+        age.setError(null);
+        farm_address.setError(null);
+        type_farming.setError(null);
+        years_farming.setError(null);
+        farm_name.setError(null);
+
+        if (input_name.length() == 0) {
+            name.setError(getString(R.string.error_name));
+        } else if (input_age.length() == 0) {
+            age.setError(getString(R.string.error_age));
+        } else if(input_farm_name.length() == 0) {
+            farm_name.setError(getString(R.string.error_farm_name));
+        } else if (input_years_farming.length() == 0) {
+            years_farming.setError(getString(R.string.error_years_farming));
+        } else if (input_type_farming.length() == 0) {
+            type_farming.setError(getString(R.string.error_type_farming));
+        } else if (input_farm_location.length() == 0) {
+            farm_address.setError(getString(R.string.error_address));
+        } else {
+            showProgress();
+            String name = input_name.getText().toString().trim();
+            String age = input_age.getText().toString().trim();
+            String years = input_years_farming.getText().toString().trim();
+            String farm_name = input_farm_name.getText().toString().trim();
+            String type_farming = input_type_farming.getText().toString().trim();
+            String farm_location = input_farm_location.getText().toString().trim();
+
+            saveRecord(name, age, years, farm_name, type_farming, farm_location);
+        }
+
+    }
+
+    private void saveRecord(String name, String age, String years, String farm_name, String type_farming, String farm_location) {
+        AppExecutors.getInstance().diskIO().execute(() -> db.farmersDao().insertFarmers(new FarmersEntity(name, age, years, farm_name, type_farming, farm_location, postPath)));
+        emptyInputEditText();
+        hideProgress();
+        Toast.makeText(this, "Successfully added Farmers record to database", Toast.LENGTH_SHORT).show();
     }
 
     /**
@@ -350,6 +402,7 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
         input_farm_location.setText("");
         input_type_farming.setText("");
         input_years_farming.setText("");
+        input_farm_name.setText("");
         profile_image.setImageResource(R.drawable.agromall);
         postPath.equals(null);
         path.equals(null);
