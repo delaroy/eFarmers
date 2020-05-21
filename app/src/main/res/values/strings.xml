@@ -27,4 +27,7 @@
     <string name="error_years_farming">Years of farming is required</string>
     <string name="error_type_farming">type of farming is required</string>
     <string name="error_address">farm address is required</string>
+    <string name="number_of_farmers"><![CDATA[Number of captured farmers & farms]]></string>
+    <string name="farmers_number">0</string>
+    <string name="no_farmer_record">No farmer record, start creating one</string>
 </resources>

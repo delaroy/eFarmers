@@ -3,17 +3,112 @@
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_view"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_margin="20dp"
+                app:cardCornerRadius="5dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:id="@+id/quizimage"
+                    android:src="@drawable/ioa"
+                    android:scaleType="centerCrop"
+                    android:layout_height="wrap_content" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:padding="25dp">
+                    <TextView
+                        android:id="@+id/text"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:text="@string/number_of_farmers" />
+                    <TextView
+                        android:id="@+id/farmers_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/text"
+                        android:text="@string/farmers_number"
+                        android:layout_marginLeft="30dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:textSize="34sp"
+                        android:layout_toEndOf="@+id/text"
+                        android:layout_marginStart="30dp" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/card_view"
+                android:layout_marginTop="10dp"
+                android:scrollbars="vertical" />
+
+            <LinearLayout
+                android:id="@+id/no_record"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/card_view"
+                android:visibility="gone"
+                android:orientation="vertical"
+                android:layout_alignParentBottom="true">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_info_outline_black_24dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textColor="@color/pink"
+                    android:text="@string/no_farmer_record"/>
+            </LinearLayout>
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
 
     <!-- Main content -->
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floating_action_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
+        android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
         app:tint="@color/pink"
         android:contentDescription="@string/add_farmers"
         android:src="@drawable/ic_add_black_24dp" />
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
