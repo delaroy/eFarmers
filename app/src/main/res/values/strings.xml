@@ -30,4 +30,5 @@
     <string name="number_of_farmers"><![CDATA[Number of captured farmers & farms]]></string>
     <string name="farmers_number">0</string>
     <string name="no_farmer_record">No farmer record, start creating one</string>
+    <string name="log_out">Log out</string>
 </resources>

@@ -9,13 +9,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.delaroystudios.efarmers.adapter.FarmersAdapter;
 import com.delaroystudios.efarmers.database.AppDatabase;
 import com.delaroystudios.efarmers.database.FarmersEntity;
+import com.delaroystudios.efarmers.utils.PreferenceUtils;
 import com.delaroystudios.efarmers.viewmodel.MainViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -23,6 +27,8 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static com.delaroystudios.efarmers.FarmerDetails.FARMER_ID;
 
 public class MainActivity extends AppCompatActivity implements FarmersAdapter.ItemClickListener{
 
@@ -51,12 +57,9 @@ public class MainActivity extends AppCompatActivity implements FarmersAdapter.It
         recycler_view.addItemDecoration(new DividerItemDecoration(recycler_view.getContext(), DividerItemDecoration.VERTICAL));
         setupViewModel();
 
-        floating_action_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
-                startActivity(intent);
-            }
+        floating_action_button.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+            startActivity(intent);
         });
     }
 
@@ -76,6 +79,30 @@ public class MainActivity extends AppCompatActivity implements FarmersAdapter.It
 
     @Override
     public void onItemClickListener(int itemId) {
+        Intent intent = new Intent(getApplicationContext(), FarmerDetails.class);
+        intent.putExtra(FARMER_ID, itemId);
+        startActivity(intent);
+    }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.logout) {
+            PreferenceUtils.saveUsername("", getApplicationContext());
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

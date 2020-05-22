@@ -13,7 +13,7 @@ public class FetchFarmersDetails extends ViewModel {
         details = database.farmersDao().loadFarmersById(id);
     }
 
-    public LiveData<FarmersEntity> ggetFarmers() {
+    public LiveData<FarmersEntity> getFarmers() {
         return details;
     }
 }
