@@ -47,7 +47,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class ProfileActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class ProfileActivity extends AppCompatActivity {
     @BindView(R.id.profile_image) CircleImageView profile_image;
     @BindView(R.id.name) TextInputLayout name;
     @BindView(R.id.input_name) TextInputEditText input_name;
@@ -64,7 +64,6 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
     @BindView(R.id.toolbar) Toolbar toolbar;
     @BindView(R.id.progress)ProgressBar progress;
 
-    private GoogleMap mMap;
     private static final int REQUEST_TAKE_PHOTO = 0;
     private static final int REQUEST_PICK_PHOTO = 2;
     private static final int CAMERA_PIC_REQUEST = 1111;
@@ -79,7 +78,6 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
     private String path;
     private static final String POST_PATH = "post_path";
     AppDatabase db;
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -105,9 +103,6 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
                 launchImagePicker();
             }
         });
-
-        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
 
         db = AppDatabase.getInstance(this);
     }
@@ -379,7 +374,6 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
 
             saveRecord(name, age, years, farm_name, type_farming, farm_location);
         }
-
     }
 
     private void saveRecord(String name, String age, String years, String farm_name, String type_farming, String farm_location) {
@@ -415,11 +409,5 @@ public class ProfileActivity extends AppCompatActivity implements OnMapReadyCall
 
     private void refreshActivity(){
         recreate();
-    }
-
-
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-
     }
 }

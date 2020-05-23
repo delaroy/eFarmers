@@ -2,7 +2,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_content">
     <com.google.android.material.appbar.AppBarLayout
         android:layout_height="wrap_content"
@@ -15,7 +14,6 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
-
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
@@ -52,7 +50,6 @@
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="40dp" />
-
             </RelativeLayout>
 
             <LinearLayout
@@ -136,7 +133,6 @@
                         android:hint="@string/farm_name" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/farm_address"
                     android:layout_width="match_parent"
@@ -150,13 +146,6 @@
                         android:inputType="text"
                         android:hint="@string/farm_address" />
                 </com.google.android.material.textfield.TextInputLayout>
-
-                <fragment
-                    android:id="@+id/map"
-                    android:name="com.google.android.gms.maps.SupportMapFragment"
-                    android:layout_width="match_parent"
-                    android:layout_height="300dp"
-                    tools:context=".ProfileActivity" />
             </LinearLayout>
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>
@@ -175,5 +164,4 @@
             android:layout_marginBottom="195dp" />
 
     </RelativeLayout>
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

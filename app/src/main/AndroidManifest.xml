@@ -31,6 +31,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity" />
         <activity android:name=".ProfileActivity"
             android:parentActivityName=".MainActivity">
 
@@ -39,7 +40,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>/>
-        <activity android:name=".MainActivity" />
         <activity android:name=".FarmerDetails"
             android:parentActivityName=".MainActivity">
 

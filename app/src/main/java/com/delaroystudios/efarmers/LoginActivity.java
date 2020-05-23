@@ -65,6 +65,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
+    //login logic
     private void login (String username, String password) {
         progress.setVisibility(View.VISIBLE);
         if (username.equals("test@theagromall.com") && password.equals("password")) {

@@ -31,4 +31,8 @@
     <string name="farmers_number">0</string>
     <string name="no_farmer_record">No farmer record, start creating one</string>
     <string name="log_out">Log out</string>
+    <string name="name">Name</string>
+    <string name="years_of_farming">Years of farming</string>
+    <string name="type_of_farming">Type of farming</string>
+    <string name="farm_location">Farm location</string>
 </resources>

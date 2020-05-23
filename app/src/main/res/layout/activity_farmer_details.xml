@@ -18,15 +18,15 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <RelativeLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_gravity="center">
 
             <fragment
@@ -34,13 +34,13 @@
                 android:name="com.google.android.gms.maps.SupportMapFragment"
                 android:layout_width="match_parent"
                 android:layout_marginTop="5dp"
-                android:layout_height="300dp"
-                tools:context=".ProfileActivity" /> />
+                android:layout_height="500dp"
+                tools:context=".ProfileActivity" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profile_image"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:src="@drawable/agromall"
                 app:civ_border_width="2dp"
                 app:civ_border_color="#23a103"
@@ -52,19 +52,20 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
+                android:padding="20dp"
+                android:layout_marginBottom="20dp"
                 android:layout_below="@id/profile_image"
                 android:layout_weight="1">
 
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    android:layout_height="30dp"
                     android:layout_weight="1"
-                    android:layout_marginTop="20dp">
+                    android:layout_marginTop="10dp">
 
                     <TextView
-                        android:text="Name"
+                        android:text="@string/name"
                         android:layout_width="0dp"
                         android:textSize="14sp"
                         android:textColor="@color/textColor"
@@ -73,7 +74,7 @@
 
                     <TextView
                         android:id="@+id/name"
-                        android:text="Button 2"
+                        tools:text="Button 2"
                         android:layout_width="0dp"
                         android:textColor="@color/textColor"
                         android:textSize="14sp"
@@ -84,12 +85,12 @@
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    android:layout_height="30dp"
                     android:layout_weight="1"
                     android:layout_marginTop="10dp">
 
                     <TextView
-                        android:text="Age"
+                        android:text="@string/age"
                         android:layout_width="0dp"
                         android:textSize="14sp"
                         android:textColor="@color/textColor"
@@ -98,7 +99,7 @@
 
                     <TextView
                         android:id="@+id/age"
-                        android:text="Age"
+                        tools:text="Age"
                         android:layout_width="0dp"
                         android:textSize="14sp"
                         android:textColor="@color/textColor"
@@ -109,12 +110,12 @@
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    android:layout_height="30dp"
                     android:layout_weight="1"
                     android:layout_marginTop="10dp">
 
                     <TextView
-                        android:text="Years of farming"
+                        android:text="@string/years_of_farming"
                         android:layout_width="0dp"
                         android:textSize="14sp"
                         android:textColor="@color/textColor"
@@ -123,7 +124,7 @@
 
                     <TextView
                         android:id="@+id/years_farming"
-                        android:text="Button 6"
+                        tools:text="Button 6"
                         android:layout_width="0dp"
                         android:textSize="14sp"
                         android:textColor="@color/textColor"
@@ -134,12 +135,12 @@
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    android:layout_height="30dp"
                     android:layout_weight="1"
                     android:layout_marginTop="10dp">
 
                     <TextView
-                        android:text="Type of farming"
+                        android:text="@string/type_of_farming"
                         android:layout_width="0dp"
                         android:textSize="14sp"
                         android:textColor="@color/textColor"
@@ -148,7 +149,7 @@
 
                     <TextView
                         android:id="@+id/type_farming"
-                        android:text="Type of farming"
+                        tools:text="Type of farming"
                         android:layout_width="0dp"
                         android:textSize="14sp"
                         android:textColor="@color/textColor"
@@ -158,12 +159,12 @@
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    android:layout_height="30dp"
                     android:layout_marginTop="10dp"
                     android:layout_weight="1">
 
                     <TextView
-                        android:text="Farm name"
+                        android:text="@string/farm_name"
                         android:layout_width="0dp"
                         android:textSize="14sp"
                         android:textColor="@color/textColor"
@@ -172,7 +173,7 @@
 
                     <TextView
                         android:id="@+id/farm_name"
-                        android:text="Type of farming"
+                        tools:text="Type of farming"
                         android:layout_width="0dp"
                         android:textSize="14sp"
                         android:textColor="@color/textColor"
@@ -182,12 +183,12 @@
                 <LinearLayout
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    android:layout_height="50dp"
                     android:layout_marginTop="10dp"
                     android:layout_weight="1">
 
                     <TextView
-                        android:text="Farm location"
+                        android:text="@string/farm_location"
                         android:layout_width="0dp"
                         android:textSize="14sp"
                         android:textColor="@color/textColor"
@@ -196,14 +197,14 @@
 
                     <TextView
                         android:id="@+id/farm_location"
-                        android:text="Farm location"
+                        tools:text="Farm location"
                         android:layout_width="0dp"
                         android:textSize="14sp"
                         android:textColor="@color/textColor"
-                        android:layout_height="wrap_content"
+                        android:layout_height="80dp"
                         android:layout_weight="1" />
                 </LinearLayout>
             </LinearLayout>
         </RelativeLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

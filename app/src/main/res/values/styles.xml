@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:fontFamily">@font/robotoslabregular</item>
     </style>
 
 
@@ -18,27 +19,32 @@
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
         <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.App.SmallComponent</item>
+        <item name="android:fontFamily">@font/robotoslabregular</item>
     </style>
 
     <style name="Widget.eFarmers.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="hintTextAppearance">@style/TextAppearance.eFarmers.TextInputLayout.HintText</item>
         <item name="android:layout_width">300dp</item>
         <item name="android:paddingBottom">8dp</item>
+        <item name="android:fontFamily">@font/robotoslabregular</item>
     </style>
 
     <style name="TextAppearance.eFarmers.TextInputLayout.HintText" parent="TextAppearance.MaterialComponents.Subtitle2">
         <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:fontFamily">@font/robotoslabregular</item>
     </style>
 
     <style name="Widget.eFarmers.Button" parent="Widget.MaterialComponents.Button">
         <item name="android:textColor">@color/white</item>
         <item name="android:background">@drawable/rectangle</item>
+        <item name="android:fontFamily">@font/robotoslabregular</item>
     </style>
 
     <style name="MyToolbarTheme"
         parent="@style/ThemeOverlay.AppCompat.Dark">
         <item name="colorControlNormal">@color/white</item>
         <item name="titleTextColor">@color/white</item>
+        <item name="android:fontFamily">@font/robotoslabregular</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -53,6 +59,7 @@
     <style name="ThemeOverlay.MyTheme" parent="ThemeOverlay.AppCompat.Light">
         <item name="android:colorBackground">@color/white</item>
         <item name="android:textColor">@color/textColor</item>
+        <item name="android:fontFamily">@font/robotoslabregular</item>
     </style>
 
     <style name="MyToolbar">
@@ -61,17 +68,19 @@
 
     <style name="ToolbarTextAppearance">
         <item name="android:textColor">@color/textColor</item>
+        <item name="android:fontFamily">@font/robotoslabregular</item>
     </style>
 
     <style name="ToolbarTextAppearance.Title">
         <item name="android:textSize">16sp</item>
         <item name="android:textStyle">bold</item>
-
+        <item name="android:fontFamily">@font/robotoslabregular</item>
     </style>
 
     <style name="TextAppearance.eFarmers.Title" parent="TextAppearance.MaterialComponents.Headline4">
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:fontFamily">@font/robotoslabregular</item>
     </style>
 
     <style name="ShapeAppearance.App.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">

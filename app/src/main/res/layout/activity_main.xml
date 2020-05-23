@@ -101,7 +101,6 @@
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <!-- Main content -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floating_action_button"
         android:layout_width="wrap_content"

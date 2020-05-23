@@ -63,12 +63,15 @@ public class MainActivity extends AppCompatActivity implements FarmersAdapter.It
         });
     }
 
+    //View model needed to display farmers records through livedata
     private void setupViewModel() {
         MainViewModel viewModel = new ViewModelProvider(this).get(MainViewModel.class);
         viewModel.getFarmers().observe(this, (List<FarmersEntity> farmersEntities) -> {
             int size = farmersEntities.size();
             if (size == 0) {
                 no_record.setVisibility(View.VISIBLE);
+            } else {
+                no_record.setVisibility(View.GONE);
             }
             farmers_number.setText(String.valueOf(size));
             if (farmersEntities != null) {
